@@ -1,0 +1,23 @@
+.not-found {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-container {
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    height: 50px;
+  }
+  
+  .footer-text {
+      color: aliceblue;
+      font-size: 14px;
+      position: relative;
+      top: 30%;
+  }
+  

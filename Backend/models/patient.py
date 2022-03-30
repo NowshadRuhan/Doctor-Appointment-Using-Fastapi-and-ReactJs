@@ -7,7 +7,7 @@ tbl_patients = Table('tbl_patients', meta,
     Column('name', String(255)),
     Column('user_name',  String(255)),
     Column('email',  String(255)),
-    Column('pass',  String(255)),
+    Column('password',  String(255)),
     Column('status',  String(255)),
 )
 

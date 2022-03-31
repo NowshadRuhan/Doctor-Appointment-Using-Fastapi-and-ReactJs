@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://root:@localhost:3306/doctors_appoinment"
 
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,
+    SQLALCHEMY_DATABASE_URL
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

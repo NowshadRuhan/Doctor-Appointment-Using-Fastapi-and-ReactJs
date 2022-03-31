@@ -17,7 +17,7 @@ async def fetch_user(id: int):
 
 @patient.post('/')
 async def create_user(patient: Patient):
-    conn.execute(tbl_patients.insert.values(
+    conn.execute(tbl_patients.insert().values(
         name = patient.name,
         user_name = patient.user_name,
         email = patient.email,
@@ -29,7 +29,7 @@ async def create_user(patient: Patient):
 
 @patient.put('/{id}')
 async def update_user(id: int, patient: Patient):
-    conn.execute(tbl_patients.update.values(
+    conn.execute(tbl_patients.update().values(
         name = patient.name,
         user_name = patient.user_name,
         email = patient.email,

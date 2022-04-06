@@ -1,7 +1,7 @@
 from config.db import conn
 from fastapi import APIRouter
-from models.patient import tbl_patients, tbl_doctors
-from schemas.patient import Patient, PatientLogin, Doctor, DoctorLogin
+from models.patient import tbl_patients, tbl_doctors, tbl_appoinment
+from schemas.patient import Patient, PatientLogin, Doctor, DoctorLogin, Appointment
 
 patient = APIRouter()
 
@@ -70,3 +70,15 @@ async def login_doctor(dcotor: DoctorLogin):
     user_name = dcotor.user_name
     password = dcotor.password
     return conn.execute(tbl_doctors.select().where(tbl_doctors.c.user_name==user_name and tbl_doctors.c.password==password)).first()
+
+@patient.post('/appointment-doctor')
+async def appointment_doctor(appiontment: Appointment):
+    patients_id = appiontment.patients_id
+    doctor_id = appiontment.doctor_id
+    appiontment_time = appiontment.appiontment_time
+    conn.execute(tbl_appoinment.insert().values(
+        patients_id = patients_id,
+        doctor_id = doctor_id,
+        appiontment_time = appiontment_time
+    ))
+    return conn.execute(tbl_appoinment.select()).fetchall()

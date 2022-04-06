@@ -1,5 +1,6 @@
+from datetime import datetime
 from pydantic import BaseModel
-
+from sqlalchemy import Column, Table, ForeignKey, DateTime
 
 class Patient(BaseModel):
     name: str
@@ -25,3 +26,8 @@ class Doctor(BaseModel):
 class DoctorLogin(BaseModel):
     user_name: str
     password: str
+
+class Appointment(BaseModel):
+    patients_id: int
+    doctor_id: int
+    appiontment_time: datetime
